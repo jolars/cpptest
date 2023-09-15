@@ -1,8 +1,8 @@
-#include <vector>
+#include "test.hpp"
 
 namespace cpptest {
 
-inline std::vector<double>
+std::vector<double>
 addVectors(const std::vector<double>& a, const std::vector<double>& b)
 {
   std::vector<double> out;

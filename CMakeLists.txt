@@ -1,17 +1,25 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.14)
 
 project(
   cpptest
   LANGUAGES CXX
   VERSION 0.1.0)
 
-# set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
-# set(CMAKE_CXX_STANDARD 11) set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# configure_file(TutorialConfig.h.in TutorialConfig.h)
+add_executable(cpptest src/cpptest.cpp)
 
-# add_executable(cpp_test tutorial.cxx)
+add_subdirectory(src)
 
-# target_include_directories(cpp_test PUBLIC ${PROJECT_BINARY_DIR})
+include(FetchContent)
 
-# add_subdirectory(include/cpptest)
+FetchContent_Declare(
+  Catch2
+  GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+  GIT_TAG v3.4.0)
+
+FetchContent_MakeAvailable(Catch2)
+
+add_executable(tests tests/test.cpp)
+target_link_libraries(tests PRIVATE Catch2::Catch2WithMain)
