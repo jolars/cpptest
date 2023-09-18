@@ -1,0 +1,2 @@
+SOURCES = $(wildcard cpptest/*.cpp)
+OBJECTS = cpptestr.o RcppExports.o $(SOURCES:.cpp=.o)
