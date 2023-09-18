@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.15)
 
 project(
   cpptest
@@ -10,11 +10,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-add_executable(cpptest src/cpptest.cpp)
-
-add_subdirectory(src/cpptest)
-
+add_subdirectory(src)
 add_subdirectory(extras)
+
+add_executable(cpptest src/cpptest.cpp)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC Test)
 
