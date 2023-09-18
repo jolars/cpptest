@@ -13,6 +13,8 @@ clean:
 install:
 	cmake --install build
 
+refresh: clean setup
+
 installbindings:
 	cmake --install build/bindings
 
