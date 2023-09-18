@@ -1,8 +1,9 @@
 Package: cpptest
 Title: What the Package Does (One Line, Title Case)
-Version: 0.1.0
+Version: @R_PKG_VERSION@
+Date: @R_PKG_DATE@
 Authors@R: 
-    person("Johan", "Wulf", , "johanlarsson@outlook.com", role = c("aut", "cre"),
+    person("Johan", "Larsson", , "johanlarsson@outlook.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-4029-5945"))
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE

@@ -3,16 +3,24 @@ find_package(R 4.0)
 include(CMakePrintHelpers)
 
 set(R_PKG_NAME cpptest)
-set(R_PKG_VER 0.1.0)
+set(R_PKG_VERSION ${CMAKE_PROJECT_VERSION})
+
+string(TIMESTAMP R_PKG_DATE "%Y-%m-%d")
 
 # Copy all R package files to the build directory
 set(R_PKG_IN_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${R_PKG_NAME})
 set(R_PKG_OUT_DIR ${CMAKE_CURRENT_BINARY_DIR}/${R_PKG_NAME})
 
-set(PKG_FILES ${R_PKG_IN_DIR}/NAMESPACE ${R_PKG_IN_DIR}/DESCRIPTION
-              ${R_PKG_IN_DIR}/R ${R_PKG_IN_DIR}/src)
+set(PKG_FILES ${R_PKG_IN_DIR}/NAMESPACE ${R_PKG_IN_DIR}/R ${R_PKG_IN_DIR}/src)
 
 file(COPY ${PKG_FILES} DESTINATION ${R_PKG_OUT_DIR})
+
+# Configure DESCRIPTION and LICENSE
+configure_file(${R_PKG_IN_DIR}/DESCRIPTION.in ${R_PKG_OUT_DIR}/DESCRIPTION
+               @ONLY)
+
+string(TIMESTAMP LICENSE_YEAR "%Y")
+configure_file(${R_PKG_IN_DIR}/LICENSE.md.in ${R_PKG_OUT_DIR}/LICENSE @ONLY)
 
 # Copy all C++ source files to the build directory
 set(CPP_SRC_DIR "${CMAKE_SOURCE_DIR}/src/cpptest")
