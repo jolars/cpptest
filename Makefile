@@ -15,8 +15,5 @@ install:
 
 refresh: clean setup
 
-installbindings:
-	cmake --install build/bindings
-
 FORCE: ;
 
