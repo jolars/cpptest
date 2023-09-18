@@ -4,7 +4,6 @@ include(CMakePrintHelpers)
 
 set(R_PKG_NAME cpptest)
 set(R_PKG_VERSION ${CMAKE_PROJECT_VERSION})
-
 string(TIMESTAMP R_PKG_DATE "%Y-%m-%d")
 
 # Copy all R package files to the build directory
@@ -67,7 +66,7 @@ add_custom_command(
   COMMENT "Build the R package.")
 
 install(
-  CODE "execute_process(COMMAND ${R_EXECUTABLE} CMD INSTALL cpptest_${R_PKG_VER}.tar.gz
+  CODE "execute_process(COMMAND ${R_EXECUTABLE} CMD INSTALL cpptest_${R_PKG_VERSION}.tar.gz
                         WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})")
 
 # cmake_print_variables(CPP_SRC_FILES)
