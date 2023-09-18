@@ -1,1 +1,1 @@
-add_library(Test test.cpp)
+add_library(hello test.cpp)
